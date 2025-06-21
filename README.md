@@ -1,1 +1,8 @@
-# DynaQ_repurchase
+# Hybrid Model-Based RL for Intelligent Marketing: Dyna-Q Meets Transformer Models and Bayesian Survival Priors
+A theory-to-practice study on profit-driven customer re-engagement in e-commerce using BG/NBD-augmented Attention and budget-aware roll-outs
+We built a next-gen coupon engine fusing three techniques: a Bayesian survival model for repurchase chance, an attention-based Transformer for profit forecasting, and a Dyna-Q RL agent for continuous policy optimization - forming a self-optimizing loop.
+First, a Bayesian "survival" model ingests each customer's purchase history and outputs the probability they'll return. By filtering out low-likelihood shoppers, we stop burning budget on dead ends.
+Then, an attention-powered Transformer takes that same customer's recent behavior sequence plus a candidate coupon value and predicts the net profit of their next order (revenue minus coupon cost).
+We multiply those two forecasts into an expected-profit score. A Dyna-Q agent treats that score as a virtual reward: it experiments with different coupon amounts in simulation, retains top performers, and updates a lookup table ranking every coupon for every customer profile. Only a handful of real tests are needed each day to recalibrate - most learning happens in low-cost, high-speed "digital twin" trials.
+The payoff: every dollar of marketing spend goes to customers who are both likely to buy and worth the incentive, live-test costs stay minimal, and the policy refreshes itself as soon as behavior shifts. 
+In practice, operations load yesterday's data, let the engine run overnight, and roll out a fully optimized coupon list by morning - confident it reflects the very latest customer trends.
